@@ -1,0 +1,19 @@
+{
+  "name": "mysofa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/udune/MySofa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/udune/MySofa/issues"
+  },
+  "homepage": "https://github.com/udune/MySofa#readme",
+  "description": ""
+}
