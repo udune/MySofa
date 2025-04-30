@@ -1,5 +1,12 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
+@font-face {
+    font-family: 'Cafe24surround';
+    src: url('./assets/fonts/Cafe24Ssurround-v2.0.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     margin: 0px;

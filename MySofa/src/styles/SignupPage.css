@@ -7,8 +7,11 @@
 }
 
 .signup_logo {
-    width: 24rem;
     margin-bottom: 2rem;
+}
+
+.signup_logo_img {
+    width: 24rem;
 }
 
 .signup_card {
@@ -22,9 +25,13 @@
 }
 
 .signup_title {
+    margin-bottom: 2rem;
+}
+
+.signup_title_text {
     font-size: 2.4rem;
     color: #222;
-    margin-bottom: 2rem;
+    font-family: 'Cafe24surround';
 }
 
 .signup_form {

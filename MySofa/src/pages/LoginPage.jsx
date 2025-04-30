@@ -1,12 +1,16 @@
 import "../styles/LoginPage.css";
-import logo from "../assets/logo.png";
+import logo from "../assets/images/logo.png";
 
 function LoginPage() {
   return (
     <div className="login_container">
       <div className="login_card">
-        <img src={logo} alt="" className="login_logo" />
-        <h2 className="login_title">로그인</h2>
+        <div className="login_logo">
+          <img src={logo} alt="" className="login_logo_img" />
+        </div>
+        <div className="login_title">
+          <span className="login_title_text">로그인</span>
+        </div>
         <form className="login_form">
           <input
             type="email"
@@ -22,12 +26,12 @@ function LoginPage() {
             로그인
           </button>
         </form>
-        <p className="login_footer">
+        <div className="login_footer">
           아직 회원이 아니신가요?{" "}
           <span to="SignupPage" className="signup_link">
             회원가입
           </span>
-        </p>
+        </div>
       </div>
     </div>
   );

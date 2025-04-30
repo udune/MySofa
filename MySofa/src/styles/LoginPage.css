@@ -7,8 +7,11 @@
 }
 
 .login_logo {
-    width: 24rem;
     margin-bottom: 2rem;
+}
+
+.login_logo_img {
+    width: 24rem;
 }
 
 .login_card {
@@ -22,9 +25,13 @@
 }
 
 .login_title {
+    margin-bottom: 2rem;
+}
+
+.login_title_text {
     font-size: 2.4rem;
     color: #222;
-    margin-bottom: 2rem;
+    font-family: 'Cafe24surround';
 }
 
 .login_form {
