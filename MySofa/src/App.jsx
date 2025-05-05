@@ -1,8 +1,7 @@
 import "./App.css";
-import Router from "./routes/index";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
+import AccountPage from "./pages/AccountPage";
 import MainPage from "./pages/MainPage";
+import Modal from "./components/Modal";
 
 function App() {
   return (

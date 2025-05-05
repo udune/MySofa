@@ -1,0 +1,80 @@
+.my {
+    flex: 1;
+    max-width: 96rem;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.my .title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.my .title_text {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-family: 'Cafe24surround';
+    color: #222;
+}
+
+.my .subtitle_text {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.my .saved_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.my .saved_item {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.05);
+    border: 1px solid #ddd;
+}
+
+.my .item_img {
+    width: 6.4rem;
+    height: auto;
+}
+
+.my .item_name {
+    margin-left: 2rem;
+    margin-right: 8rem;
+    text-align: left;
+}
+
+.my .item_name_text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #222;
+}
+
+.my .delete_button {
+    background-color: white;
+    border: 1.5px solid #222;
+    color: #222;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.my .delete_button:hover {
+    background-color: #f38b66;
+    color: white;
+    border-color: #f38b66;
+}

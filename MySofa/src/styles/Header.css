@@ -1,0 +1,52 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.header_logo {}
+
+.logo {
+    width: 14rem;
+}
+
+.header_nav_container {
+    display: flex;
+    flex-direction: row;
+    gap: 2.4rem;
+}
+
+.nav_item {
+    cursor: pointer;
+}
+
+.item_text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+    font-family: 'Cafe24surround';
+}
+
+.item_text:hover {
+    color: #f38b66;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .header_nav_container {
+        flex-direction: column;
+        gap: 1.2rem;
+        width: 100%;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}

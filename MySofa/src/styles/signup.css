@@ -1,4 +1,4 @@
-.signup_container {
+.signup {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,15 +6,7 @@
     padding-top: 5rem;
 }
 
-.signup_logo {
-    margin-bottom: 2rem;
-}
-
-.signup_logo_img {
-    width: 24rem;
-}
-
-.signup_card {
+.signup .card {
     width: 100%;
     text-align: center;
     max-width: 400px;
@@ -24,35 +16,44 @@
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.05);
 }
 
-.signup_title {
+.signup .logo {
+    width: 100%;
     margin-bottom: 2rem;
 }
 
-.signup_title_text {
+.signup .logo_img {
+    width: 24rem;
+}
+
+.signup .title {
+    margin-bottom: 2rem;
+}
+
+.signup .title_text {
     font-size: 2.4rem;
     color: #222;
     font-family: 'Cafe24surround';
 }
 
-.signup_form {
+.signup .form {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
 }
 
-.signup_input {
+.signup .input {
     border: 1px solid #ddd;
     border-radius: 0.6rem;
     padding: 1.2rem;
     font-size: 1.4rem;
 }
 
-.signup_input:focus {
+.signup .input:focus {
     border-color: #60a5fa;
     box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.5);
 }
 
-.signup_button {
+.signup .button {
     background-color: #f38b66;
     color: white;
     font-weight: bold;
@@ -63,24 +64,24 @@
     transition: background-color 0.3s;
 }
 
-.signup_button:hover {
+.signup .button:hover {
     background-color: #e57950;
     cursor: pointer;
 }
 
-.signup_footer {
+.signup .footer {
     margin-top: 1.8rem;
     font-size: 1.4rem;
     color: #666;
 }
 
-.login_link {
+.signup .link {
     color: #f38b66;
     text-decoration: none;
     font-weight: bold;
 }
 
-.login_link:hover {
+.signup .link:hover {
     text-decoration: underline;
     cursor: pointer;
 }

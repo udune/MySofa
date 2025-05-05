@@ -1,0 +1,10 @@
+.wrapper_footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
+}
+
+.copy_text {
+    font-size: 1.2rem;
+    color: #999;
+}

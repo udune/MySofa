@@ -1,0 +1,125 @@
+.admin {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    padding: 4rem 2rem;
+    max-width: 120rem;
+    text-align: center;
+}
+
+.admin .title {
+    margin-bottom: 1.5rem;
+}
+
+.admin .title_text {
+    font-size: 2rem;
+    color: #222;
+    font-family: 'Cafe24surround';
+}
+
+.admin .table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.05);
+}
+
+.admin th, td {
+    padding: 1.2rem 1.6rem;
+    text-align: left;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #eee;
+}
+
+.admin th {
+    background-color: #fafafa;
+    font-weight: 600;
+}
+
+.admin .table_head_id {
+    text-align: center;
+}
+
+.admin .table_head_name {
+    text-align: center;
+}
+
+.admin .table_head_type {
+    text-align: center;
+}
+
+.admin .table_head_buttons {
+    text-align: center;
+}
+
+.admin .table_data_id {
+    width: 10%;
+    text-align: center;
+}
+
+.admin .table_data_name {
+    width: 60%;
+    text-align: left;
+}
+
+.admin .table_data_type {
+    width: 10%;
+    text-align: center;
+}
+
+.admin .table_data_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    min-width: 110px;
+}
+
+.admin .edit_button {
+    background-color: #e2e8f0;
+    color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 0.6rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s;
+}
+
+.admin .edit_button:hover {
+    background-color: #cbd5e1;
+}
+
+.admin .delete_button {
+    background-color: #ff7a7a;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s;
+}
+
+.admin .delete_button:hover {
+    background-color: #e05555;
+}
+
+.admin .add_button {
+    background-color: #eee;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.6rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin .add_button:hover {
+    background-color: #ddd;
+}
