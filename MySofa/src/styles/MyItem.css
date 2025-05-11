@@ -1,0 +1,55 @@
+.myItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.06);
+}
+
+.myItem .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    cursor: pointer;
+    gap: 1.5rem;
+}
+
+.myItem .item_img {
+    width: 6.4rem;
+    height: auto;
+}
+
+.myItem .item_name {
+    display: flex;
+    padding-left: 2rem;
+    padding-right: 8rem;
+    text-align: left;
+}
+
+.myItem .item_name_text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #222;
+}
+
+.myItem .delete_button {
+    background-color: white;
+    border: 1.5px solid #222;
+    color: #222;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.myItem .delete_button:hover {
+    background-color: #f38b66;
+    color: white;
+    border-color: #f38b66;
+}

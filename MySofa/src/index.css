@@ -1,3 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+@font-face {
+    font-family: 'Cafe24surround';
+    src: url('/Cafe24Ssurround-v2.0.woff');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #fff8f0;
+    font-family: 'Pretendard', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 56.25%;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 50%;
+    }
+}

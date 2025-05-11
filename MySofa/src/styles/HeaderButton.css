@@ -1,0 +1,17 @@
+.headerButton {
+    cursor: pointer;
+}
+
+.headerButton .item_text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+    font-family: 'Cafe24surround';
+    text-decoration: none;
+}
+
+.headerButton .item_text:hover {
+    color: #f38b66;
+    cursor: pointer;
+}

@@ -19,40 +19,34 @@
     font-family: 'Cafe24surround';
 }
 
+.products .subtitle {
+    font-size: 1.4rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.products .search_box {
+    margin-top: 1.5rem;
+}
+
+.products .searchInput {
+    padding: 1rem 1.6rem;
+    border: none;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    width: 100%;
+    max-width: 32rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.03);
+}
+
+.products .searchInput:focus {
+    outline: none;
+    border-bottom: 1px solid #ccc;
+}
+
 .products .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 0.1rem));
     gap: 3rem;
     justify-content: center;
-}
-
-.products .card {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 1.5rem;
-    border-radius: 1.6rem;
-    box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
-    width: 100%;
-    max-width: 26rem;
-}
-
-.products .card:hover {
-    transform: translateY(-0.6rem);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-}
-
-.products .card_img {
-    width: 100%;
-    border-radius: 1rem;
-    margin-bottom: 1.2rem;
-}
-
-.products .card_text {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: #333;
 }

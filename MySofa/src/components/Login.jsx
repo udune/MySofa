@@ -1,7 +1,13 @@
 import "../styles/Login.css";
 import logo from "../assets/images/logo.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const nav = useNavigate();
+  const onClickLogin = () => {
+    nav("/");
+  };
+
   return (
     <div className="login">
       <div className="card">
@@ -22,15 +28,15 @@ const Login = () => {
             placeholder="비밀번호를 입력하세요"
             className="input"
           />
-          <button type="submit" className="button">
+          <button type="submit" className="button" onClick={onClickLogin}>
             로그인
           </button>
         </form>
         <div className="footer">
           아직 회원이 아니신가요?{" "}
-          <span to="SignupPage" className="link">
+          <Link to="/account/signup" className="link">
             회원가입
-          </span>
+          </Link>
         </div>
       </div>
     </div>
