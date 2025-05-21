@@ -20,18 +20,11 @@
 
 | 분야 | 사용 기술 |
 |:----|:---------|
-| 프론트엔드 | React, Vite, Tailwind CSS |
+| 프론트엔드 | React, Vite |
 | 백엔드 | Spring Boot, Spring Security, JWT |
-| 데이터베이스 | MySQL |
+| 데이터베이스 | MongoDB |
 | 3D 시뮬레이션 | Unity WebGL |
 | 배포 | AWS EC2, AWS S3, Vercel |
-| 기타 | GitHub Actions (CI/CD), Docker (선택사항) |
+| 기타 | GitHub Actions (CI/CD), Docker |
 
 ---
-
-## 프로젝트 구조 (Project Structure)
-
-```plaintext
-mysofa-frontend/    # React 웹 프론트엔드
-mysofa-backend/     # Spring Boot 백엔드
-mysofa-webgl/       # Unity WebGL 프로젝트
