@@ -1,6 +1,8 @@
 import "../../styles/My.css";
 import MyItem from "../UI/MyItem";
 import Modal from "../UI/Modal";
+import useTitle from "../../hook/useTitle";
+
 import { useState } from "react";
 import { useMyItemState } from "../../contexts/MyItemContext";
 import { useMyItemDispatch } from "../../contexts/MyItemContext";
@@ -10,6 +12,8 @@ const My = () => {
   const { onDelete } = useMyItemDispatch();
   const [isModal, setIsModal] = useState(false);
   const [id, setId] = useState(null);
+
+  useTitle("MySofa :: 마이 페이지");
 
   const onClickDelete = (id) => {
     setIsModal(true);

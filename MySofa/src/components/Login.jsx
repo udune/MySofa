@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const nav = useNavigate();
   const onClickLogin = () => {
-    nav("/");
+    nav("/home");
   };
 
   return (
@@ -34,7 +34,7 @@ const Login = () => {
         </form>
         <div className="footer">
           아직 회원이 아니신가요?{" "}
-          <Link to="/account/signup" className="link">
+          <Link to="/signup" className="link">
             회원가입
           </Link>
         </div>

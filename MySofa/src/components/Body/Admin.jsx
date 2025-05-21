@@ -2,6 +2,8 @@ import "../../styles/Admin.css";
 
 import AdminItem from "../UI/AdminItem";
 import Modal from "../UI/Modal";
+import useTitle from "../../hook/useTitle";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProductState } from "../../contexts/ProductContext";
@@ -13,6 +15,8 @@ const Admin = () => {
   const { onDelete } = useProductDispatch();
   const [isModal, setIsModal] = useState(false);
   const [id, setId] = useState(null);
+
+  useTitle("MySofa :: 관리자 페이지");
 
   const onClickDelete = (id) => {
     setId(id);
@@ -51,7 +55,7 @@ const Admin = () => {
               <th className="table_head_name">제품명</th>
               <th className="table_head_type">종류</th>
               <th className="table_head_buttons">
-                <button className="add_button" onClick={() => nav(`/add`)}>
+                <button className="add_button" onClick={() => nav(`/home/add`)}>
                   추가
                 </button>
               </th>

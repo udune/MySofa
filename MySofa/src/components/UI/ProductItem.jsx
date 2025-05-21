@@ -8,7 +8,7 @@ const ProductItem = ({ item }) => {
 
   return (
     <div className="productItem">
-      <button className="card" onClick={() => nav(`/customization/${id}`)}>
+      <button className="card" onClick={() => nav(`/home/customization/${id}`)}>
         <img src={test} alt="" className="card_img" />
         <span className="card_text">{name}</span>
       </button>

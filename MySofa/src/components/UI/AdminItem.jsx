@@ -17,7 +17,7 @@ const AdminItem = ({ item, onDelete }) => {
         {getSize(size).value}
       </td>
       <td className="table_data_buttons">
-        <button className="edit_button" onClick={() => nav(`/edit/${id}`)}>
+        <button className="edit_button" onClick={() => nav(`/home/edit/${id}`)}>
           수정
         </button>
         <button className="delete_button" onClick={onDelete}>

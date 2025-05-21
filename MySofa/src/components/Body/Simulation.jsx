@@ -1,24 +1,17 @@
 import Detail from "./Detail";
+import useProduct from "../../hook/useProduct";
+import useTitle from "../../hook/useTitle";
 
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useProductState } from "../../contexts/ProductContext";
+import { useParams } from "react-router-dom";
 
 const Simulation = () => {
-  const nav = useNavigate();
   const params = useParams();
-  const items = useProductState();
-  const [item, setItem] = useState();
+  useTitle("MySofa :: 제품 상세 페이지");
 
-  useEffect(() => {
-    const item = items.find((item) => String(item.id) === String(params.id));
-    if (!item) {
-      window.alert("존재하지 않는 제품입니다.");
-      nav("/", { replace: true });
-    }
-
-    setItem(item);
-  }, [params.id]);
+  const item = useProduct(params.id);
+  if (!item) {
+    return <div>데이터 로딩중</div>;
+  }
 
   const onSubmit = (item) => {
     // 시뮬레이션 유니티 WebGL 연결

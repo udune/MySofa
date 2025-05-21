@@ -16,14 +16,14 @@ const Header = () => {
         alt=""
         className="logo"
         onClick={() => {
-          nav("/");
+          nav("/home");
         }}
       />
       <div className="header_nav_container">
-        <HeaderButton text="제품 페이지" link="/" />
-        <HeaderButton text="마이 페이지" link="/my" />
-        <HeaderButton text="관리자 페이지" link="/admin" />
-        <HeaderButton text="로그아웃" onClick={onClickLogout} />
+        <HeaderButton text="제품 페이지" link="/home" />
+        <HeaderButton text="마이 페이지" link="/home/my" />
+        <HeaderButton text="관리자 페이지" link="/home/admin" />
+        <HeaderButton text="로그아웃" link="/" />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const MyItem = ({ item, onDelete }) => {
 
   return (
     <div className="myItem">
-      <div className="content" onClick={() => nav(`/simulation/${id}`)}>
+      <div className="content" onClick={() => nav(`/home/simulation/${id}`)}>
         <img src={test} alt="" className="item_img" />
         <div className="item_name">
           <span className="item_name_text">{name}</span>

@@ -28,7 +28,7 @@ function App() {
     <ProductContext>
       <MyItemContext>
         <Routes>
-          <Route path="/" element={<Home />}>
+          <Route path="/home" element={<Home />}>
             <Route index element={<Products />} />
             <Route path="customization/:id" element={<Customization />} />
             <Route path="simulation/:id" element={<Simulation />} />
@@ -38,8 +38,8 @@ function App() {
             <Route path="edit/:id" element={<Edit />} />
           </Route>
 
-          <Route path="/account" element={<Account />}>
-            <Route path="login" element={<Login />} />
+          <Route path="/" element={<Account />}>
+            <Route path="" element={<Login />} />
             <Route path="signup" element={<Signup />} />
           </Route>
 

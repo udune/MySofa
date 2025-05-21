@@ -28,14 +28,14 @@ const Detail = ({ submitText, item, onSubmit }) => {
 
   return (
     <div className="detail">
-      <div
+      {/* <div
         className="back_button"
         onClick={() => {
           nav(-1);
         }}
       >
         {"<"}
-      </div>
+      </div> */}
       <div className="card">
         <img src={test} alt="" className="card_img" />
       </div>

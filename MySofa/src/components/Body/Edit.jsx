@@ -1,4 +1,5 @@
 import Form from "./Form";
+import useTitle from "../../hook/useTitle";
 
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -13,12 +14,13 @@ const Edit = () => {
   const items = useProductState();
   const { onUpdate } = useProductDispatch();
   const [item, setItem] = useState();
+  useTitle("MySofa :: 제품 수정 페이지");
 
   useEffect(() => {
     const item = items.find((item) => String(item.id) === String(params.id));
     if (!item) {
       window.alert("존재하지 않는 제품입니다.");
-      nav("/admin", { replace: true });
+      nav("/home/admin", { replace: true });
     }
 
     setItem(item);
@@ -33,7 +35,7 @@ const Edit = () => {
       item.size,
       item.model
     );
-    nav("/admin", { replace: true });
+    nav("/home/admin", { replace: true });
   };
 
   return (

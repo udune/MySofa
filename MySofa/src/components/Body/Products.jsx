@@ -1,28 +1,34 @@
 import "../../styles/Products.css";
 import ProductItem from "../UI/ProductItem";
-import { useProductState } from "../../contexts/ProductContext";
+import useTitle from "../../hook/useTitle";
 
-import { useState } from "react";
+import { useProductState } from "../../contexts/ProductContext";
+import { useEffect, useState } from "react";
 
 const Products = () => {
   const productItems = useProductState();
   const [search, setSearch] = useState("");
+  const [searchedItems, setSearchedItems] = useState(productItems);
+
+  useTitle("MySofa :: 제품 페이지");
 
   const onChangeSearch = (event) => {
     setSearch(event.target.value);
   };
 
-  const searching = () => {
-    if (search === "") {
-      return productItems;
-    }
-
-    return productItems.filter((item) =>
-      item.name.toLowerCase().includes(search.toLowerCase())
-    );
-  };
-
-  const searchedItems = searching();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (search.trim() === "") {
+        setSearchedItems(productItems);
+      } else {
+        const filterItems = productItems.filter((item) =>
+          item.name.toLowerCase().includes(search.toLowerCase())
+        );
+        setSearchedItems(filterItems);
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [search, productItems]);
 
   return (
     <div className="products">
