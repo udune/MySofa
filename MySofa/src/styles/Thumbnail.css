@@ -1,0 +1,17 @@
+.product_card_img {
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.my_card_img {
+    width: 9.4rem;
+    height: auto;
+}
+
+.detail_card_img {
+    width: 100%;
+    max-width: 58rem;
+    height: auto;
+    margin-bottom: 3rem;
+}

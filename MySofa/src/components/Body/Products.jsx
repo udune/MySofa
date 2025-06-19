@@ -22,7 +22,7 @@ const Products = () => {
         setSearchedItems(productItems);
       } else {
         const filterItems = productItems.filter((item) =>
-          item.name.toLowerCase().includes(search.toLowerCase())
+          item.customName.toLowerCase().includes(search.toLowerCase())
         );
         setSearchedItems(filterItems);
       }

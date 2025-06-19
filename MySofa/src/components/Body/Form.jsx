@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 const Form = ({ title, submitText, item, onSubmit }) => {
   const [input, setInput] = useState({
-    name: "신제품",
+    name: "classicsofa",
+    customName: "신제품",
     color: "gray",
     material: "fabric",
     size: "small",
-    model: "a",
+    modelType: "a",
   });
 
   useEffect(() => {
@@ -38,12 +39,27 @@ const Form = ({ title, submitText, item, onSubmit }) => {
       <span className="title_text">제품 {title}</span>
       <div className="content">
         <div className="form_group">
+          <span className="form_label">제품 모델</span>
+          <select
+            id=""
+            name="name"
+            className="form_select"
+            value={input.name}
+            onChange={onChangeInput}
+          >
+            <option value="classicsofa">클래식 소파</option>
+            <option value="modularsofa">모듈러 소파</option>
+            <option value="privatesofa">1인용 소파</option>
+            <option value="roungesofa">라운지 소파</option>
+          </select>
+        </div>
+        <div className="form_group">
           <span className="form_label">제품 이름</span>
           <input
             type="text"
-            name="name"
+            name="customName"
             className="form_input"
-            value={input.name}
+            value={input.customName}
             onChange={onChangeInput}
           />
         </div>
@@ -53,6 +69,7 @@ const Form = ({ title, submitText, item, onSubmit }) => {
             id=""
             name="color"
             className="form_select"
+            value={input.color}
             onChange={onChangeInput}
           >
             <option value="gray">회색</option>
@@ -66,6 +83,7 @@ const Form = ({ title, submitText, item, onSubmit }) => {
             id=""
             name="material"
             className="form_select"
+            value={input.material}
             onChange={onChangeInput}
           >
             <option value="fabric">패브릭</option>
@@ -78,6 +96,7 @@ const Form = ({ title, submitText, item, onSubmit }) => {
             id=""
             name="size"
             className="form_select"
+            value={input.size}
             onChange={onChangeInput}
           >
             <option value="small">소형</option>
@@ -90,6 +109,7 @@ const Form = ({ title, submitText, item, onSubmit }) => {
             id=""
             name="model"
             className="form_select"
+            value={input.modelType}
             onChange={onChangeInput}
           >
             <option value="a">모델A</option>

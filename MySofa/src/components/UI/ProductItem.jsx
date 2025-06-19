@@ -1,16 +1,23 @@
 import "../../styles/ProductItem.css";
-import test from "../../assets/images/test.png";
 import { useNavigate } from "react-router-dom";
+import Thumbnail from "../Body/Thumbnail";
 
 const ProductItem = ({ item }) => {
-  const { id, name, color, material, size, model } = item;
+  const { id, name, customName, color, material, size, modelType } = item;
   const nav = useNavigate();
 
   return (
     <div className="productItem">
       <button className="card" onClick={() => nav(`/home/customization/${id}`)}>
-        <img src={test} alt="" className="card_img" />
-        <span className="card_text">{name}</span>
+        <Thumbnail
+          style="product_card_img"
+          name={name}
+          color={color}
+          material={material}
+          size={size}
+          modelType={modelType}
+        />
+        <span className="card_text">{customName}</span>
       </button>
     </div>
   );

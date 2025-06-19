@@ -10,7 +10,7 @@ export const getColor = (color) => {
         return { value: "검은색", desc: "중후한 매력이 있고 무엇보다 멋있는 블랙 색상입니다." }
       }
       default: {
-        return {value: "없음", desc: "정보가 없습니다."}
+        return { value: "없음", desc: "정보가 없습니다." }
       }
     }
 }
@@ -24,7 +24,7 @@ export const getMaterial = (material) => {
         return { value: "가죽", desc: "격조 있고 클래식한 느낌의 가죽 재질입니다."}
       }
       default: {
-        return {value: "없음", desc: "정보가 없습니다."}
+        return { value: "없음", desc: "정보가 없습니다." }
       }
     }
 }
@@ -32,13 +32,27 @@ export const getMaterial = (material) => {
 export const getSize = (size) => {
     switch (size) {
       case "small": {
-        return {value: "소형", desc: "작은 사이즈로 좁은 공간을 효율적으로 쓸 수 있습니다."}
+        return { value: "소형", desc: "작은 사이즈로 좁은 공간을 효율적으로 쓸 수 있습니다." }
       }
       case "large": {
-        return {value: "대형", desc: "큰 사이즈 여러 명이 사용하기에 충분합니다."}
+        return { value: "대형", desc: "큰 사이즈 여러 명이 사용하기에 충분합니다." }
       }
       default: {
-        return {value: "없음", desc: "정보가 없습니다."}
+        return { value: "없음", desc: "정보가 없습니다." }
       }
     }
+}
+
+export const getModelType = (modelType) => {
+  switch (modelType) {
+    case "a": {
+      return { value: "a타입", desc: "" }
+    }
+    case "b": {
+      return { value: "b타입", desc: "" }
+    }
+    default: {
+      return { value: "없음", desc: "정보가 없습니다." }
+    }
+  }
 }

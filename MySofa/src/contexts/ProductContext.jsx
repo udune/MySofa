@@ -25,17 +25,25 @@ const ProductContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, productItemDatas);
   const idRef = useRef(5);
 
-  const onCreate = (name, color, material, size, model) => {
+  const onCreate = (name, customName, color, material, size, modelType) => {
     dispatch({
       type: "CREATE",
-      data: { id: idRef.current++, name, color, material, size, model },
+      data: {
+        id: idRef.current++,
+        name,
+        customName,
+        color,
+        material,
+        size,
+        modelType,
+      },
     });
   };
 
-  const onUpdate = (id, name, color, material, size, model) => {
+  const onUpdate = (id, name, customName, color, material, size, modelType) => {
     dispatch({
       type: "UPDATE",
-      data: { id, name, color, material, size, model },
+      data: { id, name, customName, color, material, size, modelType },
     });
   };
 

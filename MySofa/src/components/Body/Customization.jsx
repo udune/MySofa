@@ -15,6 +15,17 @@ const Customization = () => {
 
   const onSubmit = (item) => {
     // 커스텀 유니티 WebGL 연결
+    const customizationData = {
+      token: "abcdef",
+      ...item,
+    };
+
+    localStorage.setItem(
+      "mysofa_customdata",
+      JSON.stringify(customizationData)
+    );
+
+    window.location.href = "https://unity.my-sofa.org/";
   };
 
   return (

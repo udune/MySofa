@@ -30,10 +30,11 @@ const Edit = () => {
     onUpdate(
       item.id,
       item.name,
+      item.customName,
       item.color,
       item.material,
       item.size,
-      item.model
+      item.modelType
     );
     nav("/home/admin", { replace: true });
   };

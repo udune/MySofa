@@ -1,8 +1,13 @@
 import "../../styles/Detail.css";
-import test from "../../assets/images/test.png";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getColor, getMaterial, getSize } from "../../util/detailDesc.js";
+import {
+  getColor,
+  getMaterial,
+  getSize,
+  getModelType,
+} from "../../util/detailDesc.js";
+import Thumbnail from "./Thumbnail.jsx";
 
 const Detail = ({ submitText, item, onSubmit }) => {
   const nav = useNavigate();
@@ -10,10 +15,11 @@ const Detail = ({ submitText, item, onSubmit }) => {
   const [input, setInput] = useState({
     id: null,
     name: "",
+    customName: "",
     color: "",
     material: "",
     size: "",
-    model: "",
+    modelType: "",
   });
 
   useEffect(() => {
@@ -28,22 +34,22 @@ const Detail = ({ submitText, item, onSubmit }) => {
 
   return (
     <div className="detail">
-      {/* <div
-        className="back_button"
-        onClick={() => {
-          nav(-1);
-        }}
-      >
-        {"<"}
-      </div> */}
       <div className="card">
-        <img src={test} alt="" className="card_img" />
+        <Thumbnail
+          style="detail_card_img"
+          name={input.name}
+          color={input.color}
+          material={input.material}
+          size={input.size}
+          modelType={input.modelType}
+        />
       </div>
       <div className="title">
-        <span className="title_text">{input.name}</span>
+        <span className="title_text">{input.customName}</span>
         <span className="subtitle_text">
           {getSize(input.size).value} | {getColor(input.color).value} |{" "}
-          {getMaterial(input.material).value}
+          {getMaterial(input.material).value} |{" "}
+          {getModelType(input.modelType).value}
         </span>
       </div>
       <div className="description">
