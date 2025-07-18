@@ -20,15 +20,12 @@ const Simulation = () => {
       ...item,
     };
 
-    const jsonData = JSON.stringify(customizationData);
+    localStorage.setItem(
+      "mysofa_customdata",
+      JSON.stringify(customizationData)
+    );
 
-    document.cookie = `customData=${encodeURIComponent(
-      jsonData
-    )}; path=/; SameSite=None; Secure; expires=${new Date(
-      Date.now() + 3600 * 1000
-    ).toUTCString()}`;
-
-    window.location.href = "https://d8txu43mg2cok.cloudfront.net";
+    window.location.href = "https://unity.my-sofa.org/";
   };
 
   return (
