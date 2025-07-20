@@ -16,6 +16,23 @@ export interface LoginResponse {
     user: User;
 }
 
+export interface SignupRequest {
+    nickname: string;
+    email: string;
+    password: string;
+}
+
+export interface SignupResponse {
+    id: string;
+    nickname: string;
+    email: string;
+    role: string;
+    my_items: { id: string };
+    custom_sessions: { id: string };
+    created_at: string;
+    updated_at: string;
+}
+
 export interface AuthContextType {
     user: User | null;
     accessToken: string | null;
