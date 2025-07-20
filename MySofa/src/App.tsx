@@ -1,7 +1,7 @@
 // CSS
 import "./App.css";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // Page
 import Account from "./pages/Account.tsx";
@@ -23,28 +23,76 @@ import Customization from "./components/Body/Customization.tsx";
 import ProductContext from "./contexts/ProductContext";
 import MyItemContext from "./contexts/MyItemContext";
 
+// AuthContext
+import { AuthProvider, useAuth } from "./contexts/AuthContext.tsx";
+
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <div>로딩 중...</div>
+  }
+
+  return isAuthenticated() ? children : <Navigate to="/" replace />
+};
+
+const AdminRoute = ({ children }: { children: React.ReactNode }) => {
+  const { isAdmin, isAuthenticated } = useAuth();
+
+  if (!isAuthenticated()) {
+    return <Navigate to="/" replace />;
+  } 
+
+  if (!isAdmin()) {
+    return <Navigate to="/home" replace />;
+  }
+
+  return children;
+}
+
+const PublicRoute = ({ children }: { children: React.ReactNode }) => {
+  const { isAuthenticated } = useAuth();
+  return !isAuthenticated() ? children : <Navigate to="/home" replace />;
+}
+
 const App: React.FC = () => {
   return (
     <ProductContext>
       <MyItemContext>
-        <Routes>
-          <Route path="/home" element={<Home />}>
-            <Route index element={<Products />} />
-            <Route path="customization/:id" element={<Customization />} />
-            <Route path="simulation/:id" element={<Simulation />} />
-            <Route path="my" element={<My />} />
-            <Route path="admin" element={<Admin />} />
-            <Route path="add" element={<Add />} />
-            <Route path="edit/:id" element={<Edit />} />
+        <AuthProvider>
+          <Routes>
+            {/* 로그인 필요 */}
+            <Route path="/home" element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }>
+              <Route index element={<Products />} />
+              <Route path="customization/:id" element={<Customization />} />
+              <Route path="simulation/:id" element={<Simulation />} />
+              <Route path="my" element={<My />} />
+              
+              <Route path="admin" element={
+                  <AdminRoute>
+                    <Admin />
+                  </AdminRoute>
+                } />
+              <Route path="add" element={<Add />} />
+              <Route path="edit/:id" element={<Edit />} />
           </Route>
 
-          <Route path="/" element={<Account />}>
-            <Route index element={<Login />} />
-            <Route path="signup" element={<Signup />} />
+            <Route path="/" element={
+                <PublicRoute>
+                  <Account />
+                </PublicRoute>
+              }>
+              <Route path="" element={<Login />} />
+              <Route path="signup" element={<Signup />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </AuthProvider>
       </MyItemContext>
     </ProductContext>
   );

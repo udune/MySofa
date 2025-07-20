@@ -17,6 +17,12 @@
     gap: 2.4rem;
 }
 
+.header_user_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 @media (max-width: 768px) {
     .header_nav_container {
         flex-direction: column;
