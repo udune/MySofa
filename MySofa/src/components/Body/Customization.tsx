@@ -19,8 +19,13 @@ const Customization = () => {
   }
 
   const onSubmit = async (item: Product): Promise<void> => {
-    if (isAuthenticated()) {
+    if (!isAuthenticated()) {
+      console.log('로그인이 필요합니다.')
       return;
+    }
+
+    if (!user?.id) {
+      console.log('user.id가 없습니다.', user)
     }
     
     try {
@@ -37,8 +42,7 @@ const Customization = () => {
 
       const sessionResponse = await customSessionService.createCustomSession(sessionRequest);
 
-      const unityUrl = `https://unity.my-sofa.org/?sessionId=${sessionResponse.id}`;
-      window.location.href = unityUrl;
+      window.location.href = `https://unity.my-sofa.org/?sessionId=${sessionResponse.id}`;
     } catch (error) {
       console.log('커스텀 세션 생성 실패', error);
     }
