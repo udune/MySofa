@@ -60,7 +60,6 @@ const App: React.FC = () => {
     <AuthProvider>
       <ProductContext>
         <MyItemContext>
-        
           <Routes>
             {/* 로그인 필요 */}
             <Route path="/home" element={
