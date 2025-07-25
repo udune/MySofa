@@ -1,10 +1,12 @@
 import axios from "axios";
 
+const isProduction = window.location.hostname === 'my-sofa.org';
+
 // axios 인스턴스를 생성한다.
 const axiosInstance = axios.create({
     // 개발환경에서는 프록시를 사용한다.
     // 실제 운영은 https://api.my-sofa.org
-    baseURL: '/api',
+    baseURL: isProduction ? 'https://api.my-sofa.org' : '/api',
     timeout: 10000
 })
 
