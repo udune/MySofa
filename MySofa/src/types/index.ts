@@ -29,13 +29,15 @@ export interface DetailDescription {
 }
 
 export interface ProductContextType {
-    onCreate: (name: ProductName, custom_name: string, color: Color, material: Material, size: Size, model_type: ModelType) => void;
-    onUpdate: (id: string, name: ProductName, custom_name: string, color: Color, material: Material, size: Size, model_type: ModelType) => void;
-    onDelete: (id: string) => void;
+    onCreate: (name: ProductName, custom_name: string, color: Color, material: Material, size: Size, model_type: ModelType) => Promise<void>;
+    onUpdate: (id: string, name: ProductName, custom_name: string, color: Color, material: Material, size: Size, model_type: ModelType) => Promise<void>;
+    onDelete: (id: string) => Promise<void>;
 }
 
 export interface MyItemContextType {
-    onDelete: (id: string) => void;
+    onCreate: (product: Omit<Product, 'id'>) => Promise<void>;
+    onUpdate: (id: string, product: Partial<Product>) => Promise<void>;
+    onDelete: (id: string) => Promise<void>;
 }
 
 export interface ProductItemProps {

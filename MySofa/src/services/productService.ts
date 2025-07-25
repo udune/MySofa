@@ -77,8 +77,8 @@ export const productService = {
 
   // 상품 업데이트
   async updateProduct(id: string, product: Partial<Product>): Promise<Product> {
-    try {
-      const response = await axiosInstance.put<Product>(`/products/${id}`, product);
+      try {
+      const response = await axiosInstance.patch<Product>(`/products/${id}`, product);
       return response.data;
     } catch (error) {
       console.error(`Failed to update product ${id}:`, error);

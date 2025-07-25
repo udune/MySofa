@@ -45,13 +45,39 @@ const MyItemContext: React.FC<MyItemContextProps> = ({ children }) => {
     loadMyItems();
   }, [isAuthenticated])
 
-  const onDelete = (id: string): void => {
-    setMyItems(myItems.filter((item) => item.id !== id));
+  const onCreate = async (product: Omit<Product, 'id'>): Promise<void> => {
+    try {
+      const newMyItem = await myItemService.createMyItem(product);
+      setMyItems(prev => [...prev, newMyItem]);
+    } catch (error) {
+      console.log('마이 아이템 생성 실패', error);
+      throw error;
+    }
+  }
+
+  const onUpdate = async (id: string, product: Partial<Product>): Promise<void> => {
+    try {
+      const updatedMyItem = await myItemService.updateMyItem(id, product);
+      setMyItems(prev => prev.map(item => item.id === id ? updatedMyItem : item));
+    } catch (error) {
+      console.log('내 아이템 수정 실패', error);
+      throw error;
+    }
+  }
+
+  const onDelete = async (id: string): Promise<void> => {
+    try {
+      await myItemService.deleteMyItem(id);
+      setMyItems(myItems.filter((item) => item.id !== id));
+    } catch (error) {
+      console.log('내 아이템 삭제 실패', error);
+      throw error;
+    }
   };
 
   return (
     <MyItemStateContext.Provider value={myItems}>
-      <MyItemDispatchContext.Provider value={{ onDelete }}>
+      <MyItemDispatchContext.Provider value={{ onCreate, onUpdate, onDelete }}>
         {children}
       </MyItemDispatchContext.Provider>
     </MyItemStateContext.Provider>

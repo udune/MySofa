@@ -32,7 +32,6 @@ const Edit: React.FC = () => {
   }, [params.id, items, nav]);
 
   const onSubmit = (item: ProductFormInput & { id?: string }): void => {
-    console.log(item.id);
     if (!item.id)
       return;
 

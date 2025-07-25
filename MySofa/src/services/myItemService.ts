@@ -62,7 +62,7 @@ export const myItemService = {
   },
 
   // 특정 내 아이템 상세 조회
-  async getMyItem(id: number): Promise<Product> {
+  async getMyItem(id: string): Promise<Product> {
     try {
       const response = await axiosInstance.get<Product>(`/myitems/${id}`);
       return response.data;
@@ -91,7 +91,7 @@ export const myItemService = {
   },
 
   // 내 아이템 수정 (커스터마이징 변경)
-  async updateMyItem(id: number, product: Partial<Product>): Promise<Product> {
+  async updateMyItem(id: string, product: Partial<Product>): Promise<Product> {
     try {
       const response = await axiosInstance.patch<Product>(`/myitems/${id}`, product);
       return response.data;
@@ -122,7 +122,7 @@ export const myItemService = {
   },
 
   // 내 아이템 삭제
-  async deleteMyItem(id: number): Promise<void> {
+  async deleteMyItem(id: string): Promise<void> {
     try {
       await axiosInstance.delete(`/myitems/${id}`);
     } catch (error) {
