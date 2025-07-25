@@ -58,8 +58,8 @@ const PublicRoute = ({ children }: { children: React.ReactNode }) => {
 const App: React.FC = () => {
   return (
     <AuthProvider>
-    <ProductContext>
-      <MyItemContext>
+      <ProductContext>
+        <MyItemContext>
         
           <Routes>
             {/* 로그인 필요 */}
@@ -89,12 +89,12 @@ const App: React.FC = () => {
               }>
               <Route path="" element={<Login />} />
               <Route path="signup" element={<Signup />} />
-          </Route>
+            </Route>
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </MyItemContext>
-    </ProductContext>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </MyItemContext>
+      </ProductContext>
     </AuthProvider>
   );
 }
