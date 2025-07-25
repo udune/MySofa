@@ -1,6 +1,7 @@
 import { Color, Material, ModelType, Product, ProductContextType, ProductName, Size } from "@/types";
-import { createContext, useReducer, useRef, useContext, ReactNode, useEffect } from "react";
+import { createContext, useReducer, useContext, ReactNode, useEffect } from "react";
 import { productService } from "@/services/productService";
+import { useAuth } from "./AuthContext";
 
 const ProductStateContext = createContext<Product[] | undefined>(undefined);
 const ProductDispatchContext = createContext<ProductContextType | undefined>(undefined);
@@ -23,11 +24,12 @@ type Action =
   | { type: "SET_PRODUCTS"; products: Product[] }
   | { type: "CREATE"; data: Product }
   | { type: "UPDATE"; data: Product }
-  | { type: "DELETE"; id: number };
+  | { type: "DELETE"; id: string };
 
 function reducer(state: Product[], action: Action): Product[] {
   switch (action.type) {
     case "SET_PRODUCTS":
+      console.log(action.type, action.products)
       return action.products;
     case "CREATE":
       return [...state, action.data];
@@ -48,35 +50,34 @@ interface ProductContextProps {
 
 const ProductContext: React.FC<ProductContextProps> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, []);
-  const idRef = useRef<number>(1);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
+    if (!isAuthenticated()) {
+      return;
+    }
+
     const loadProducts = async () => {
       try {
         const products = await productService.getProducts();
         dispatch({ type: "SET_PRODUCTS", products })
-
-        if (products.length > 0) {
-          const maxId = Math.max(...products.map(p => p.id));
-          idRef.current = maxId + 1;
-        }
       } catch (error) {
         console.log('상품 조회 실패', error);
       }
     };
 
     loadProducts();
-  }, [])
+  }, [isAuthenticated])
 
-  const onCreate = async (name: ProductName, customName: string, color: Color, material: Material, size: Size, modelType: ModelType) => {
+  const onCreate = async (name: ProductName, custom_name: string, color: Color, material: Material, size: Size, model_type: ModelType) => {
     try {
       const newProduct = await productService.createProduct({
         name,
-        customName,
+        custom_name,
         color,
         material,
         size,
-        modelType,
+        model_type,
       });
 
       dispatch({
@@ -89,15 +90,15 @@ const ProductContext: React.FC<ProductContextProps> = ({ children }) => {
     }
   };
 
-  const onUpdate = async (id: number, name: ProductName, customName: string, color: Color, material: Material, size: Size, modelType: ModelType): Promise<void> => {
+  const onUpdate = async (id: string, name: ProductName, custom_name: string, color: Color, material: Material, size: Size, model_type: ModelType): Promise<void> => {
     try {
       const updatedProduct = await productService.updateProduct(id, {
         name, 
-        customName,
+        custom_name,
         color,
         material,
         size,
-        modelType,
+        model_type,
       })
 
       dispatch({
@@ -108,11 +109,9 @@ const ProductContext: React.FC<ProductContextProps> = ({ children }) => {
       console.log('상품 수정 실패', error);
       throw error;
     }
-    
-
   };
 
-  const onDelete = async (id: number): Promise<void> => {
+  const onDelete = async (id: string): Promise<void> => {
     
     try {
       await productService.deleteProduct(id);

@@ -1,11 +1,11 @@
 export interface Product {
-    id: number;
+    id: string;
     name: ProductName;
-    customName: string;
+    custom_name: string;
     color: Color;
     material: Material;
     size: Size;
-    modelType: ModelType;
+    model_type: ModelType;
 }
 
 export type ProductName = 'classicsofa' | 'modularsofa' | 'privatesofa' | 'roungesofa';
@@ -16,11 +16,11 @@ export type ModelType = 'a' | 'b';
 
 export interface ProductFormInput {
     name: ProductName;
-    customName: string;
+    custom_name: string;
     color: Color;
     material: Material;
     size: Size;
-    modelType: ModelType;
+    model_type: ModelType;
 }
 
 export interface DetailDescription {
@@ -29,13 +29,13 @@ export interface DetailDescription {
 }
 
 export interface ProductContextType {
-    onCreate: (name: ProductName, customName: string, color: Color, material: Material, size: Size, modelType: ModelType) => void;
-    onUpdate: (id: number, name: ProductName, customName: string, color: Color, material: Material, size: Size, modelType: ModelType) => void;
-    onDelete: (id: number) => void;
+    onCreate: (name: ProductName, custom_name: string, color: Color, material: Material, size: Size, model_type: ModelType) => void;
+    onUpdate: (id: string, name: ProductName, custom_name: string, color: Color, material: Material, size: Size, model_type: ModelType) => void;
+    onDelete: (id: string) => void;
 }
 
 export interface MyItemContextType {
-    onDelete: (id: number) => void;
+    onDelete: (id: string) => void;
 }
 
 export interface ProductItemProps {
@@ -48,6 +48,7 @@ export interface MyItemProps {
 }
 
 export interface AdminItemProps {
+    index: number;
     item: Product;
     onDelete: () => void;
 }
@@ -58,14 +59,14 @@ export interface ThumbnailProps {
     color: Color;
     material: Material;
     size: Size;
-    modelType: ModelType;
+    model_type: ModelType;
 }
 
 export interface FormProps {
     title: string;
     submitText: string;
     item?: Product;
-    onSubmit: (item: ProductFormInput & { id?: number }) => void;
+    onSubmit: (item: ProductFormInput & { id?: string }) => void;
 }
 
 export interface DetailProps {
@@ -90,11 +91,11 @@ export interface HeaderButtonProps {
 
 export interface CustomizationData {
     token: string;
-    id?: number;
+    id?: string;
     name: ProductName;
-    customName: string;
+    custom_name: string;
     color: Color;
     material: Material;
     size: Size;
-    modelType: ModelType;
+    model_type: ModelType;
 }

@@ -23,7 +23,7 @@ const Products: React.FC = () => {
         setSearchedItems(productItems);
       } else {
         const filterItems = productItems.filter((item) =>
-          item.customName.toLowerCase().includes(search.toLowerCase())
+          item.custom_name.toLowerCase().includes(search.toLowerCase())
         );
         setSearchedItems(filterItems);
       }

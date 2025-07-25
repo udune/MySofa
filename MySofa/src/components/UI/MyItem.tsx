@@ -4,7 +4,7 @@ import Thumbnail from "../Body/Thumbnail";
 import { MyItemProps } from "@/types";
 
 const MyItem: React.FC<MyItemProps> = ({ item, onDelete }) => {
-  const { id, name, customName, color, material, size, modelType } = item;
+  const { id, name, custom_name, color, material, size, model_type } = item;
   const nav = useNavigate();
 
   return (
@@ -16,10 +16,10 @@ const MyItem: React.FC<MyItemProps> = ({ item, onDelete }) => {
           color={color}
           material={material}
           size={size}
-          modelType={modelType}
+          model_type={model_type}
         />
         <div className="item_name">
-          <span className="item_name_text">{customName}</span>
+          <span className="item_name_text">{custom_name}</span>
         </div>
       </div>
       <button className="delete_button" onClick={onDelete}>

@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 const Form: React.FC<FormProps> = ({ title, submitText, item, onSubmit }) => {
   const [input, setInput] = useState<ProductFormInput>({
     name: "classicsofa",
-    customName: "신제품",
+    custom_name: "신제품",
     color: "gray",
     material: "fabric",
     size: "small",
-    modelType: "a",
+    model_type: "a",
   });
 
   useEffect(() => {
@@ -20,9 +20,6 @@ const Form: React.FC<FormProps> = ({ title, submitText, item, onSubmit }) => {
   }, [item]);
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
-    console.log(e.target.name);
-    console.log(e.target.value);
-
     const { name, value } = e.target;
     setInput({ ...input, [name as keyof ProductFormInput]: value });
   };
@@ -60,9 +57,9 @@ const Form: React.FC<FormProps> = ({ title, submitText, item, onSubmit }) => {
           <span className="form_label">제품 이름</span>
           <input
             type="text"
-            name="customName"
+            name="custom_name"
             className="form_input"
-            value={input.customName}
+            value={input.custom_name}
             onChange={onChangeInput}
           />
         </div>
@@ -110,9 +107,9 @@ const Form: React.FC<FormProps> = ({ title, submitText, item, onSubmit }) => {
           <span className="form_label">기본 모델</span>
           <select
             id=""
-            name="model"
+            name="model_type"
             className="form_select"
-            value={input.modelType}
+            value={input.model_type}
             onChange={onChangeInput}
           >
             <option value="a">모델A</option>

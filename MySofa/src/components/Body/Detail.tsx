@@ -12,13 +12,13 @@ import { DetailProps, Product } from "@/types/index.js";
 const Detail: React.FC<DetailProps> = ({ submitText, item, onSubmit }) => {
 
   const [input, setInput] = useState<Product>({
-    id: 0,
+    id: "",
     name: "classicsofa",
-    customName: "",
+    custom_name: "",
     color: "gray",
     material: "fabric",
     size: "small",
-    modelType: "a",
+    model_type: "a",
   });
 
   useEffect(() => {
@@ -40,15 +40,15 @@ const Detail: React.FC<DetailProps> = ({ submitText, item, onSubmit }) => {
           color={input.color}
           material={input.material}
           size={input.size}
-          modelType={input.modelType}
+          model_type={input.model_type}
         />
       </div>
       <div className="title">
-        <span className="title_text">{input.customName}</span>
+        <span className="title_text">{input.custom_name}</span>
         <span className="subtitle_text">
           {getSize(input.size).value} | {getColor(input.color).value} |{" "}
           {getMaterial(input.material).value} |{" "}
-          {getModelType(input.modelType).value}
+          {getModelType(input.model_type).value}
         </span>
       </div>
       <div className="description">

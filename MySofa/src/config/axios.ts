@@ -30,9 +30,11 @@ axiosInstance.interceptors.response.use(
     (error) => {
         if (error.response?.status === 401) {
             // localStorage에 저장된 토큰을 삭제한다.
-            localStorage.removeItem('accessToken');
-            localStorage.removeItem('user');
-            window.location.href = '/';
+            if (window.location.pathname !== '/') {
+                localStorage.removeItem('accessToken');
+                localStorage.removeItem('user');
+                window.location.href = '/';
+            }
         }
         return Promise.reject(error);
     }

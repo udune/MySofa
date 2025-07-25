@@ -99,7 +99,7 @@ const Signup: React.FC = () => {
               name="nickname"
               value={formData.nickname}
               onChange={handleInputChange}
-              placeholder="닉네임을 입력하세요"
+              placeholder="닉네임을 입력하세요 (최대 20자)"
               className="input"
               disabled={isLoading || isSuccess}
               required
@@ -119,7 +119,7 @@ const Signup: React.FC = () => {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              placeholder="비밀번호를 입력하세요"
+              placeholder="비밀번호 (8자 이상, 영문+숫자+특수문자 조합)"
               className="input"
               disabled={isLoading || isSuccess}
               required

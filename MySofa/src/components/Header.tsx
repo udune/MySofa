@@ -5,6 +5,7 @@ import HeaderButton from "./UI/HeaderButton";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Modal from "./UI/Modal";
+import { authService } from "@/services/authService";
 
 const Header: React.FC = () => {
   const nav = useNavigate();
@@ -16,6 +17,7 @@ const Header: React.FC = () => {
   };
 
   const confirm = (): void => {
+    authService.logout();
     logout();
     nav("/");
     close();

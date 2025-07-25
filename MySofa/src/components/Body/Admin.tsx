@@ -14,11 +14,11 @@ const Admin: React.FC = () => {
   const productItems = useProductState();
   const { onDelete } = useProductDispatch();
   const [isModal, setIsModal] = useState<boolean>(false);
-  const [id, setId] = useState<number | null>(null);
+  const [id, setId] = useState<string | null>(null);
 
   useTitle("MySofa :: 관리자 페이지");
 
-  const onClickDelete = (id: number): void => {
+  const onClickDelete = (id: string): void => {
     setId(id);
     setIsModal(true);
   };
@@ -64,10 +64,11 @@ const Admin: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {productItems.map((item) => {
+            {productItems.map((item, index) => {
               return (
                 <AdminItem
                   key={item.id}
+                  index={index}
                   item={item}
                   onDelete={() => onClickDelete(item.id)}
                 />

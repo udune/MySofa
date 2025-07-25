@@ -1,6 +1,7 @@
 import { MyItemContextType, Product } from "@/types";
-import { MyItemDatas } from "../util/constants";
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { useAuth } from "./AuthContext";
+import { myItemService } from "@/services/myItemService";
 
 const MyItemStateContext = createContext<Product[] | undefined>(undefined);
 const MyItemDispatchContext = createContext<MyItemContextType | undefined>(undefined);
@@ -24,9 +25,27 @@ interface MyItemContextProps {
 }
 
 const MyItemContext: React.FC<MyItemContextProps> = ({ children }) => {
-  const [myItems, setMyItems] = useState<Product[]>(MyItemDatas);
+  const [myItems, setMyItems] = useState<Product[]>([]);
+  const { isAuthenticated } = useAuth();
 
-  const onDelete = (id: number): void => {
+  useEffect(() => {
+    if (!isAuthenticated()) {
+      return;
+    }
+
+    const loadMyItems = async () => {
+      try {
+        const myItems = await myItemService.getMyItems();
+        setMyItems(myItems);
+      } catch (error) {
+        console.log('마이 아이템 조회 실패', error)
+      }
+    }
+
+    loadMyItems();
+  }, [isAuthenticated])
+
+  const onDelete = (id: string): void => {
     setMyItems(myItems.filter((item) => item.id !== id));
   };
 

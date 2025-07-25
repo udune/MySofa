@@ -5,7 +5,7 @@ import Thumbnail from "../Body/Thumbnail.tsx";
 import type { ProductItemProps } from "@/types";
 
 const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
-  const { id, name, customName, color, material, size, modelType } = item;
+  const { id, name, custom_name, color, material, size, model_type } = item;
   const nav = useNavigate();
 
   return (
@@ -17,9 +17,9 @@ const ProductItem: React.FC<ProductItemProps> = ({ item }) => {
           color={color}
           material={material}
           size={size}
-          modelType={modelType}
+          model_type={model_type}
         />
-        <span className="card_text">{customName}</span>
+        <span className="card_text">{custom_name}</span>
       </button>
     </div>
   );

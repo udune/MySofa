@@ -31,18 +31,19 @@ const Edit: React.FC = () => {
     setItem(foundItem);
   }, [params.id, items, nav]);
 
-  const onSubmit = (item: ProductFormInput & { id?: number }): void => {
+  const onSubmit = (item: ProductFormInput & { id?: string }): void => {
+    console.log(item.id);
     if (!item.id)
       return;
 
     onUpdate(
       item.id,
       item.name,
-      item.customName,
+      item.custom_name,
       item.color,
       item.material,
       item.size,
-      item.modelType
+      item.model_type
     );
     nav("/home/admin", { replace: true });
   };

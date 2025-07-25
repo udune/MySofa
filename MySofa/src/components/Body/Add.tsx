@@ -11,7 +11,7 @@ const Add: React.FC = () => {
   useTitle("MySofa :: 제품 추가 페이지");
 
   const onSubmit = (item: ProductFormInput): void => {
-    onCreate(item.name, item.customName, item.color, item.material, item.size, item.modelType);
+    onCreate(item.name, item.custom_name, item.color, item.material, item.size, item.model_type);
     nav("/home/admin", { replace: true });
   };
 

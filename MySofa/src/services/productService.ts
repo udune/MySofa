@@ -7,7 +7,8 @@ export const productService = {
   async getProducts(): Promise<Product[]> {
     try {
       // 로그인/회원가입과 동일하게 프록시 사용
-      const response = await axiosInstance.get<Product[]>('/products');
+        const response = await axiosInstance.get<Product[]>('/products');
+        console.log(response.data);
       return response.data;
     } catch (error) {
       console.error('Failed to fetch products:', error);
@@ -24,7 +25,7 @@ export const productService = {
   },
 
   // 특정 상품 조회
-  async getProduct(id: number): Promise<Product> {
+  async getProduct(id: string): Promise<Product> {
     try {
       const response = await axiosInstance.get<Product>(`/products/${id}`);
       return response.data;
@@ -75,7 +76,7 @@ export const productService = {
   },
 
   // 상품 업데이트
-  async updateProduct(id: number, product: Partial<Product>): Promise<Product> {
+  async updateProduct(id: string, product: Partial<Product>): Promise<Product> {
     try {
       const response = await axiosInstance.put<Product>(`/products/${id}`, product);
       return response.data;
@@ -106,7 +107,7 @@ export const productService = {
   },
 
   // 상품 삭제
-  async deleteProduct(id: number): Promise<void> {
+  async deleteProduct(id: string): Promise<void> {
     try {
       await axiosInstance.delete(`/products/${id}`);
     } catch (error) {

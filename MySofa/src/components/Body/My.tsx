@@ -11,11 +11,11 @@ const My: React.FC = () => {
   const myItems = useMyItemState();
   const { onDelete } = useMyItemDispatch();
   const [isModal, setIsModal] = useState<boolean>(false);
-  const [id, setId] = useState<number | null>(null);
+  const [id, setId] = useState<string | null>(null);
 
   useTitle("MySofa :: 마이 페이지");
 
-  const onClickDelete = (id: number): void => {
+  const onClickDelete = (id: string): void => {
     setIsModal(true);
     setId(id);
   };
