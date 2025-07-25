@@ -3,7 +3,7 @@ import logo from "../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, FormEvent, useState } from "react";
 import Toast from "./UI/Toast";
-import "../styles/toast.css"
+import "../styles/Toast.css"
 import { authService } from "@/services/authService";
 
 interface SignupData {
