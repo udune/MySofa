@@ -11,7 +11,7 @@ import {
 import { AdminItemProps } from "@/types/index.js";
 
 const AdminItem: React.FC<AdminItemProps> = ({ index, item, onDelete }) => {
-  const { id, name, custom_name, color, material, size, model_type } = item;
+  const { id, custom_name, color, material, size, model_type } = item;
   const nav = useNavigate();
 
   return (
