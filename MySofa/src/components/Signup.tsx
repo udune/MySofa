@@ -1,11 +1,10 @@
 import "../styles/signup.css";
 import logo from "../assets/images/logo.png";
-import axios, { AxiosError } from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { SignupRequest } from "@/types/auth";
 import Toast from "./UI/Toast";
 import "../styles/toast.css"
+import { authService } from "@/services/authService";
 
 interface SignupData {
   nickname: string;
@@ -49,14 +48,11 @@ const Signup: React.FC = () => {
     setError("");
 
     try {
-      const signupRequest: SignupRequest = {
+      await authService.signup({
         nickname: formData.nickname,
         email: formData.email,
         password: formData.password,
-      }
-
-      // TODO: 개발 (프록시 사용)
-      await axios.post('/api/users', signupRequest)
+      })
 
       setToastMessage(`${formData.nickname}님 반가워요!`);
       setIsToast(true);
@@ -66,37 +62,16 @@ const Signup: React.FC = () => {
         nav("/");
       }, 3000)
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        const axiosError = error as AxiosError;
-        if (axiosError.response) {
-          const status = axiosError.response.status;
-          switch (status) {
-            case 400:
-              setError("입력한 정보를 확인해주세요.");
-              break;
-            case 409:
-              setError("이미 존재하는 이메일입니다.");
-              break;
-            case 500:
-              setError("서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
-              break;
-            default:
-              setError("회원가입 중 오류가 발생했습니다.");
-          }
-        } else if (axiosError.request) {
-          setError("네트워크 연결을 확인해주세요.");
-        } else {
-          setError("회원가입 중 오류가 발생했습니다.");
-        }
+      if (error instanceof Error) {
+        setError(error.message);
       } else {
-        setError("알 수 없는 오류가 발생했습니다.");
+        setError('알 수 없는 오류가 발생했습니다.');
       }
 
       setFormData(prev => ({
         ...prev,
         password: ""
       }))
-
     } finally {
       setIsLoading(false);
     }
