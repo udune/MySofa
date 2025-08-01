@@ -10,7 +10,7 @@ import { CustomSessionRequest } from "@/types/customSession";
 
 const Simulation: React.FC = () => {
   const { isAuthenticated, user } = useAuth();
-  const params = useParams<{id: string}>();
+  const params = useParams<{ id: string }>();
   useTitle("MySofa :: 제품 상세 페이지");
 
   const item = useMyItem(params.id!);
@@ -20,14 +20,14 @@ const Simulation: React.FC = () => {
 
   const onSubmit = async (item: Product): Promise<void> => {
     if (!isAuthenticated()) {
-      console.log('로그인이 필요합니다.')
+      console.log("로그인이 필요합니다.");
       return;
     }
 
     if (!user?.id) {
-      console.log('user.id가 없습니다.', user)
+      console.log("user.id가 없습니다.", user);
     }
-    
+
     try {
       const sessionRequest: CustomSessionRequest = {
         user_id: user?.id,
@@ -38,13 +38,15 @@ const Simulation: React.FC = () => {
         material: item.material,
         size: item.size,
         model_type: item.model_type,
-      }
+      };
 
-      const sessionResponse = await customSessionService.createCustomSession(sessionRequest);
+      const sessionResponse = await customSessionService.createCustomSession(
+        sessionRequest
+      );
 
-      window.location.href = `https://unity.my-sofa.org/?sessionId=${sessionResponse.id}&isEdit=true`;
+      window.location.href = `https://unity.my-sofa.org/?sessionId=${sessionResponse.id}&myitemId=${params.id}`;
     } catch (error) {
-      console.log('커스텀 세션 생성 실패', error);
+      console.log("커스텀 세션 생성 실패", error);
     }
   };
 
