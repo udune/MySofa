@@ -40,6 +40,8 @@ const Simulation: React.FC = () => {
         model_type: item.model_type,
       };
 
+      console.log(sessionRequest);
+
       const sessionResponse = await customSessionService.createCustomSession(
         sessionRequest
       );
