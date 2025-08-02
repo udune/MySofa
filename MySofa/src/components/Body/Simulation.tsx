@@ -40,13 +40,11 @@ const Simulation: React.FC = () => {
         model_type: item.model_type,
       };
 
-      console.log(sessionRequest);
-
       const sessionResponse = await customSessionService.createCustomSession(
         sessionRequest
       );
 
-      window.location.href = `https://unity.my-sofa.org/?sessionId=${sessionResponse.id}&myitemId=${params.id}`;
+      window.location.href = `https://unity.my-sofa.org/?sessionId=${sessionResponse.id}&myitemId=${item.id}`;
     } catch (error) {
       console.log("커스텀 세션 생성 실패", error);
     }
