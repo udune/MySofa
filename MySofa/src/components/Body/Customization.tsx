@@ -26,6 +26,7 @@ const Customization = () => {
 
     if (!user?.id) {
       console.log("user.id가 없습니다.", user);
+      return;
     }
 
     try {

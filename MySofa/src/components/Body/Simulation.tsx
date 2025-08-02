@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import { Product } from "@/types";
 import { useAuth } from "@/contexts/AuthContext";
 import { customSessionService } from "@/services/customSessionService";
-import { CustomSessionRequest } from "@/types/customSession";
 
 const Simulation: React.FC = () => {
   const { isAuthenticated, user } = useAuth();
@@ -26,22 +25,12 @@ const Simulation: React.FC = () => {
 
     if (!user?.id) {
       console.log("user.id가 없습니다.", user);
+      return;
     }
 
     try {
-      const sessionRequest: CustomSessionRequest = {
-        user_id: user?.id,
-        product_id: item.id,
-        name: item.name,
-        custom_name: item.custom_name,
-        color: item.color,
-        material: item.material,
-        size: item.size,
-        model_type: item.model_type,
-      };
-
-      const sessionResponse = await customSessionService.createCustomSession(
-        sessionRequest
+      const sessionResponse = await customSessionService.createMyItemSession(
+        item.id
       );
 
       window.location.href = `https://unity.my-sofa.org/?sessionId=${sessionResponse.id}&myitemId=${item.id}`;

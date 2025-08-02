@@ -1,4 +1,4 @@
-import { ProductName, Color, Material, Size, ModelType } from './index';
+import { ProductName, Color, Material, Size, ModelType } from "./index";
 
 // 커스텀 세션 요청 타입
 export interface CustomSessionRequest {
