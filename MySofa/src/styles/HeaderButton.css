@@ -12,6 +12,6 @@
 }
 
 .headerButton .item_text:hover {
-    color: #f38b66;
+    color: var(--primary);
     cursor: pointer;
 }

@@ -5,15 +5,50 @@
     src: url('/Cafe24Ssurround-v2.0.woff');
 }
 
+:root {
+    /* Primary colors */
+    --primary: #f38b66;
+    --primary-hover: #e57950;
+    --primary-light: #f9a687;
+    --primary-gradient: linear-gradient(135deg, #f38b66, #ff9a7a);
+    --primary-gradient-hover: linear-gradient(135deg, #e57950, #f38b66);
+    
+    /* Background colors */
+    --bg-gradient: linear-gradient(135deg, #fff8f0 0%, #fdf4ed 100%);
+    --surface: #ffffff;
+    --surface-soft: #fefefe;
+    
+    /* Text colors */
+    --text: #2c2c2c;
+    --text-secondary: #5a5a5a;
+    --text-light: #8a8a8a;
+    --text-muted: #b8b8b8;
+    
+    /* Status colors */
+    --error: #e05555;
+    --error-light: #ff7a7a;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-primary: 0 4px 16px rgba(243, 139, 102, 0.25);
+}
+
 * {
     box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: #fff8f0;
+    background: var(--bg-gradient);
     font-family: 'Pretendard', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
 html {

@@ -3,33 +3,86 @@
 }
 
 .productItem .card {
-    background-color: #fff;
+    background: var(--surface);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 2rem 0;
-    border-radius: 1.6rem;
-    box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
-    max-width: 26rem;
+    max-width: 28rem;
+    min-height: 32rem;
     cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.productItem .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
 }
 
 .productItem .card:hover {
-    transform: translateY(-0.6rem);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-primary);
+    border-color: rgba(243, 139, 102, 0.2);
+}
+
+.productItem .card:hover::before {
+    opacity: 0.03;
 }
 
 .productItem .card_img {
     width: 100%;
-    border-radius: 1rem;
-    margin-bottom: 1.2rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 1.2rem;
+    margin-bottom: 1.6rem;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.productItem .card:hover .card_img {
+    transform: scale(1.03);
 }
 
 .productItem .card_text {
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .productItem .card {
+        min-height: 28rem;
+        padding: 1.6rem;
+    }
+    
+    .productItem .card_img {
+        height: 16rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .productItem .card_text {
+        font-size: 1.4rem;
+    }
 }

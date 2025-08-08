@@ -1,4 +1,5 @@
 import "../../styles/MyItem.css";
+import "../../styles/buttons.css";
 import { useNavigate } from "react-router-dom";
 import Thumbnail from "../Body/Thumbnail";
 import { MyItemProps } from "@/types";
@@ -22,7 +23,7 @@ const MyItem: React.FC<MyItemProps> = ({ item, onDelete }) => {
           <span className="item_name_text">{custom_name}</span>
         </div>
       </div>
-      <button className="delete_button" onClick={onDelete}>
+      <button className="button button-sm" onClick={onDelete}>
         삭제
       </button>
     </div>

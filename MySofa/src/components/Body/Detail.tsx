@@ -1,4 +1,5 @@
 import "../../styles/Detail.css";
+import "../../styles/buttons.css";
 import { useState, useEffect } from "react";
 import {
   getColor,

@@ -1,5 +1,6 @@
 import { ModalProps } from "@/types";
 import "../../styles/Modal.css";
+import "../../styles/buttons.css";
 
 const Modal: React.FC<ModalProps> = ({ message, confirmText, closeText, onConfirm, onClose }) => {
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>): void => {
@@ -19,10 +20,10 @@ const Modal: React.FC<ModalProps> = ({ message, confirmText, closeText, onConfir
           <span className="modal_message">{message}</span>
         </div>
         <div className="modal_buttons">
-          <button className="modal_cancel" onClick={onClose}>
+          <button className="button-cancel" onClick={onClose}>
             {closeText}
           </button>
-          <button className="modal_confirm" onClick={onConfirm}>
+          <button className="button-confirm" onClick={onConfirm}>
             {confirmText}
           </button>
         </div>

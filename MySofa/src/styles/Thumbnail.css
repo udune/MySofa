@@ -1,17 +1,23 @@
 .product_card_img {
     width: 100%;
-    border-radius: 1rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 1.2rem;
     margin-bottom: 1.2rem;
 }
 
 .my_card_img {
-    width: 9.4rem;
-    height: auto;
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 1rem;
 }
 
 .detail_card_img {
     width: 100%;
     max-width: 58rem;
-    height: auto;
+    height: 40rem;
+    object-fit: cover;
+    border-radius: 2rem;
     margin-bottom: 3rem;
 }

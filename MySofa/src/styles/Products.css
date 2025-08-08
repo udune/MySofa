@@ -13,16 +13,23 @@
 }
 
 .products .title_text {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #222;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text);
     font-family: 'Cafe24surround';
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.8rem;
 }
 
 .products .subtitle {
-    font-size: 1.4rem;
-    color: #666;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
     margin-top: 0.5rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
 }
 
 .products .search_box {
@@ -30,23 +37,37 @@
 }
 
 .products .searchInput {
-    padding: 1rem 1.6rem;
-    border: none;
-    border-radius: 0.8rem;
+    padding: 1.4rem 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5rem;
     font-size: 1.4rem;
     width: 100%;
-    max-width: 32rem;
-    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.03);
+    max-width: 36rem;
+    background: var(--surface);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text);
+    backdrop-filter: blur(10px);
+}
+
+.products .searchInput::placeholder {
+    color: var(--text-light);
 }
 
 .products .searchInput:focus {
     outline: none;
-    border-bottom: 1px solid #ccc;
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-2px);
+    background: var(--surface-soft);
 }
 
 .products .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 0.1rem));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 3.2rem;
     justify-content: center;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 1rem;
 }

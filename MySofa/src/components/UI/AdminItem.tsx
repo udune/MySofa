@@ -1,4 +1,5 @@
 import "../../styles/AdminItem.css";
+import "../../styles/buttons.css";
 
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +27,7 @@ const AdminItem: React.FC<AdminItemProps> = ({ index, item, onDelete }) => {
         <button className="edit_button" onClick={() => nav(`/home/edit/${id}`)}>
           수정
         </button>
-        <button className="delete_button" onClick={onDelete}>
+        <button className="button-error" onClick={onDelete}>
           삭제
         </button>
       </td>

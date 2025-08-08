@@ -48,7 +48,7 @@
 }
 
 .form .form_input:focus, .form_select:focus {
-    border-color: #f38b66;
+    border-color: var(--primary);
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(243, 139, 102, 0.3);
 }
@@ -62,7 +62,7 @@
 .form .submit_button {
     margin-top: 2rem;
     padding: 1rem 0;
-    background-color: #f38b66;
+    background-color: var(--primary);
     border: none;
     border-radius: 0.8rem;
     color: white;
@@ -73,7 +73,7 @@
 }
 
 .submit_button:hover {
-    background-color: #e5774e;
+    background-color: var(--primary-hover);
 }
 
 .form .back_button {

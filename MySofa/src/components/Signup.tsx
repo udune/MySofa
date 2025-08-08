@@ -1,4 +1,4 @@
-import "../styles/signup.css";
+import "../styles/auth.css";
 import logo from "../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -85,7 +85,7 @@ const Signup: React.FC = () => {
           onClose={() => setIsToast(false)}
         />
       )}
-      <div className="signup">
+      <div className="auth">
         <div className="card">
           <div className="logo">
             <img className="logo_img" src={logo} alt="MySofa Logo" />

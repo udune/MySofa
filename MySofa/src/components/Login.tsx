@@ -1,4 +1,4 @@
-import "../styles/Login.css";
+import "../styles/auth.css";
 import logo from "../assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -64,7 +64,7 @@ const Login: React.FC = () => {
   }
 
     return (
-      <div className="login">
+      <div className="auth">
         <div className="card">
           <div className="logo">
             <img className="logo_img" src={logo} alt="MySofa Logo" />
